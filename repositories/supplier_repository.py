@@ -22,7 +22,7 @@ def select_all():
         manufacturer = manufacturer_repository.select(row['manufacturer_id'])
         supplier = Supplier(product, manufacturer, row['id'])
         suppliers.append(supplier)
-    return visits
+    return suppliers
 
 def delete_all():
     sql = "DELETE FROM suppliers"
