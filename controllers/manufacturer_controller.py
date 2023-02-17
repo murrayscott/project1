@@ -1,11 +1,11 @@
-class Manufacturer:
+from flask import Flask, render_template, request, redirect
+from flask import Blueprint
+from models.manufacturer import Manufacturer
+import repositories.manufacturer_repository as manufacturer_repository
 
-    def __init__(self, name, address, contact, telephone, email, website, deleted, id = None):
-      self.name = name
-      self.address = address
-      self.contact = contact
-      self.telephone = telephone
-      self.email = email
-      self.website = website
-      self.deleted = deleted
-      self.id = id
+manufacturers_blueprint = Blueprint("manufactureres", __name__)
+
+@manufacturers_blueprint.route("/manufacturers")
+def manufacturers():
+    manufacturers = manufacturer_repository.select_all() # NEW
+    return render_template("manufacturer/index.html", manufacturers = manufacturers)
