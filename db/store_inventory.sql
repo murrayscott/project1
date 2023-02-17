@@ -1,6 +1,6 @@
-IF EXISTS DROP TABLE suppliers;
-IF EXISTS DROP TABLE products;
-IF EXISTS DROP TABLE manufacturers;
+DROP TABLE IF EXISTS suppliers;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS manufacturers;
 
 CREATE TABLE manufacturers (
   id SERIAL PRIMARY KEY,
