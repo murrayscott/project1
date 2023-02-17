@@ -1,13 +1,13 @@
 import unittest
-from src.src import function_name
+from models.manufacturer import Manufacturer
 
 class TestSrc(unittest.TestCase):
-    def test_description(self):
+    def test_name(self):
         # ------------  AAA  ---------------
         # Arrange - setup specific to this test
-        # None
+        name = "Mothers Pride"
         # Act - do the thing want to test
-        self.src.function(value)
+        returned=self.models.manufacturer(name)
         # Assert - did it do what you wanted?
-        self.assertEqual(expected_value,actual_function_value)
+        self.assertEqual("Mothers Pride",returned)
         # Red - Green - Refactor - Commit
