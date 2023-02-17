@@ -9,3 +9,16 @@ def save(product):
     results = run_sql( sql, values )
     product.id = results[0]['id']
     return product
+
+def select_all():
+    products = []
+    sql = "SELECT * FROM products"
+    results = run_sql(sql)
+    for row in results:
+        product = Product(row['name'], row['description'], row['part_number'],row['category'],row['stock_qty'],row['reorder_level'],row['unit_multiple'],row['cost'], row['selling_price'], row['deleted'])
+        products.append(product)
+    return products
+
+def delete_all():
+    sql = "DELETE FROM products"
+    run_sql(sql)

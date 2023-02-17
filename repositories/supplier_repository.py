@@ -12,3 +12,23 @@ def save(supplier):
     results = run_sql( sql, values )
     supplier.id = results[0]['id']
     return supplier
+
+def select_all():
+    suppliers = []
+    sql = "SELECT * FROM suppliers"
+    results = run_sql(sql)
+    for row in results:
+        product = product_repository.select(row['product_id'])
+        manufacturer = manufacturer_repository.select(row['manufacturer_id'])
+        supplier = Supplier(product, manufacturer, row['id'])
+        suppliers.append(supplier)
+    return visits
+
+def delete_all():
+    sql = "DELETE FROM suppliers"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM suppliers WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
