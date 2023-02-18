@@ -2,12 +2,20 @@ import unittest
 from models.supplier import Supplier
 
 class TestSupplier(unittest.TestCase):
-    def test_name(self):
+
+    def setUp(self):
+        self.supplier=Supplier(1,2,False)
+
+    def test_product_id(self):
         # ------------  AAA  ---------------
         # Arrange - setup specific to this test
-        id = 1
+        # Set up completed above for all tests
         # Act - do the thing want to test
-        returned=self.models.supplier(id)
+        returned=self.supplier.product_id
         # Assert - did it do what you wanted?
         self.assertEqual(1,returned)
         # Red - Green - Refactor - Commit
+
+    def test_manufacturer_id(self):
+        returned=self.supplier.manufacturer_id
+        self.assertEqual(2,returned)
