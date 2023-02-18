@@ -1,7 +1,7 @@
 import unittest
 from models.supplier import Supplier
 
-class TestSrc(unittest.TestCase):
+class TestSupplier(unittest.TestCase):
     def test_name(self):
         # ------------  AAA  ---------------
         # Arrange - setup specific to this test

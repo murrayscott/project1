@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 from controllers.supplier_controller import suppliers_blueprint
 from controllers.product_controller import products_blueprint
