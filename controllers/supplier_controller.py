@@ -9,7 +9,7 @@ suppliers_blueprint = Blueprint("suppliers", __name__)
 
 @suppliers_blueprint.route("/suppliers")
 def suppliers():
-    suppliers = supplier_repository.select_all() # NEW
+    suppliers = supplier_repository.select_all()
     return render_template("suppliers/index.html", suppliers = suppliers)
 
 # GET '/suppliers/new'
@@ -17,7 +17,7 @@ def suppliers():
 def new_task():
     products = product_repository.select_all()
     manufacturers = manufacturer_repository.select_all()
-    return render_template("suppliers/new.html", product = products, manufacturers = manufacturers)
+    return render_template("suppliers/new.html", products = products, manufacturers = manufacturers)
 
 # CREATE
 # POST '/suppliers'

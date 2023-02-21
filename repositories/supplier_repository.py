@@ -16,7 +16,7 @@ def save(supplier):
 def select_all():
     suppliers = []
     sql = "SELECT * FROM suppliers"
-    results = run_sql(sql)
+    results = run_sql( sql )
     for row in results:
         product = product_repository.select(row['product_id'])
         manufacturer = manufacturer_repository.select(row['manufacturer_id'])
@@ -26,9 +26,9 @@ def select_all():
 
 def delete_all():
     sql = "DELETE FROM suppliers"
-    run_sql(sql)
+    run_sql( sql )
 
 def delete(id):
     sql = "DELETE FROM suppliers WHERE id = %s"
     values = [id]
-    run_sql(sql, values)
+    run_sql( sql, values )
