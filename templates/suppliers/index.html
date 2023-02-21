@@ -13,6 +13,8 @@
     <th>Description</th>
     <th>Maufacturer</th>
     <th>Stock Quantity</th>
+    <th>Reorder Level</th>
+    <th>Stock Status</th>
   </tr>
   {% for supplier in suppliers %}
   <tr>
@@ -20,6 +22,8 @@
     <td>{{ supplier.product.description}} </td>
     <td><a href="/manufacturers/{{ supplier.manufacturer.id }}"> {{supplier.manufacturer.name}} </a></td>
     <td>{{ supplier.product.stock_qty }} </td>
+    <td>{{ supplier.product.reorder_level }} </td>
+    <td>{{ supplier.product.stock_qty - supplier.product.reorder_level }} </td>
     <td>
       <form action="/suppliers/{{ supplier.id }}/delete" method="POST">
         <input type="submit" value="delete" />
