@@ -29,10 +29,62 @@
     <td><a href="/products/{{product.id}}/edit">Edit</a></td>
     <td>
       <form action="/products/{{ product.id }}/delete" method="POST">
-        <button><i>Delete</i></button>
+        <button><b>Delete</b></button>
+      </form>
+    </td>
+  {% endfor %}
+  </tr>
+  <tr>
+    <td>
+      <form>
+        <input type="text" id = "name" size="30" name="name">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "description" size="50" name="description">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "part_number" name="part_number">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "category" size="15" name="category">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "stock_qty" size="8" name="stock_qty">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "reorder_level" size="8" name="reorder_level">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "unit_multiple" size="8" name="unit_multiple">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "cost" size="10" name="cost">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "selling_price" size="10" name="selling_price">
+      </form>
+    </td>
+    <td>
+      <form action="/products/add" method="POST">
+        <button><b>Add</b></button>
       </form>
     </td>
   </tr>
-  {% endfor %}
 </table>
 {% endblock %}
