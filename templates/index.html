@@ -3,4 +3,18 @@
 {% block content %}
 <h1>Stock Inventory Management</h1>
 
+<ul>
+    {% for supplier in suppliers %}
+    <li>
+    <p>{{ supplier.product.name }} - {{ supplier.manufacturer.name }} </p>
+    <p>"<i>{{supplier.deleted}}</i>"</p>
+      <p>
+        <form action="/supplier/{{ supplier.id }}/delete" method="POST">
+          <input class="btn btn--danger" type="submit" value="delete" />
+        </form>
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
+
 {% endblock %}
