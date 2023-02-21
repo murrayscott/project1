@@ -17,6 +17,7 @@ CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   description VARCHAR(255),
+  part_number VARCHAR(255),
   category VARCHAR(255),
   stock_qty INT,
   reorder_level INT,
@@ -29,5 +30,6 @@ CREATE TABLE products (
 CREATE TABLE suppliers (
   id SERIAL PRIMARY KEY,
   product_id INT REFERENCES products(id) ON DELETE CASCADE,
-  manufacturer_id INT NOT NULL REFERENCES manufacturers(id) ON DELETE CASCADE
+  manufacturer_id INT NOT NULL REFERENCES manufacturers(id) ON DELETE CASCADE,
+  deleted BOOLEAN
 );
