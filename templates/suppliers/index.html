@@ -9,15 +9,22 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th></th>
-    <th>Category</th>
+    <th>Product</th>
+    <th>Description</th>
+    <th>Maufacturer</th>
+    <th>Stock Quantity</th>
   </tr>
-  {% for manufacturer in manufacturers %}
+  {% for supplier in suppliers %}
   <tr>
-    <td><a href="/manufacturers/{{ location.id }}"> {{manufacturer.name}} </a></td>
-    <td>|</td>
-    <td>{{ manufacturer.category }}</td>
+    <td><a href="/products/{{ supplier.product.id }}=">{{ supplier.product.name }} </a></td>
+    <td>{{ supplier.product.description}} </td>
+    <td><a href="/manufacturers/{{ supplier.manufacturer.id }}"> {{supplier.manufacturer.name}} </a></td>
+    <td>{{ supplier.product.stock_qty }} </td>
+    <td>
+      <form action="/suppliers/{{ supplier.id }}/delete" method="POST">
+        <input type="submit" value="delete" />
+      </form>
+    </td>
   </tr>
   {% endfor %}
 </table>
