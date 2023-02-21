@@ -27,7 +27,7 @@ def create_task():
     manufacturer_id = request.form['manufacturer_id']
     product = product_repository.select(product_id)
     manufacturer =  manufacturer_repository.select(manufacturer_id)
-    supplier = Supplier(product, manufacturer)
+    supplier = Supplier(product, manufacturer, False)
     supplier_repository.save(supplier)
     return redirect('/suppliers')
 
