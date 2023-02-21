@@ -11,29 +11,44 @@ supplier_repository.delete_all()
 manufacturer_repository.delete_all()
 product_repository.delete_all()
 
-product1 = Product('Cheese', XXXXX)
+product1 = Product('Nutella','Hazelnut chocolate spread', '80177173', 'Condiments', 23, 10, 12, 2.99, 1.78, False)
 product_repository.save(product1)
 
-product2 = User('Milk', XXXXX)
+product2 = User('6P Milk','Semi Skimmed Milk','4088600538044','Dairy', 62, 50, 48, 3.03, 3.40, False )
 product_repository.save(product2)
 
-product3 = User('Bread', XXXXX)
+product3 = User('4P Milk','Semi Skimmed Milk','4088600538032','Dairy', 62, 50, 48, 2.03, 2.40, False )
+product_repository.save(product2)
+
+product4 = User('2P Milk','Semi Skimmed Milk','4088600538872','Dairy', 62, 50, 48, 1.10, 1.40, False )
+product_repository.save(product2)
+
+product5 = User('Mothers Pride Superseeded Sliced', 'Mixed Grain Sliced Loaf','5054781498063', 'Grain', 45, 40, 12, 1.45, 1.89, False)
 product_repository.save(product3)
 
-manufacturer1 = Manufacturer('Robert Wiseman', XXXXX)
+manufacturer1 = Manufacturer('Robert Wiseman', 'Moorfield Industrial Estate, Kilmarnock. KA2 0BA', 'Richard Fields', '01563 521376', 'orders@muller.co.uk','https://www.muller.co.uk', False)
 manufacturer_repository.save(manufacturer1)
 
-manufacturer2 = Manufacturer('Mothers Pride', XXXXX)
+manufacturer2 = Manufacturer('Allied Bakeries','180 Glentanar Rd, Glasgow. G22 7XS', 'Barry Brownbread', '0141 347 4222', 'sales@alliedbakeries.co.uk', 'www.alliedbakeries.co.uk', False)
 manufacturer_repository.save(manufacturer2)
 
-supplier1 = Supplier(manufacturer1, product1)
+manufacturer3 = Manufacturer('Ferrero', '889 Greenford Rd, Greenford. UB6 0HE','Tracy Nutford', '020 8868 4000','orders@ferrero.co.uk', 'www.fererro.co.uk', False )
+manufacturer_repository.save(manufacturer2)
+
+supplier1 = Supplier(manufacturer1, product2)
 supplier_repository.save(supplier1)
 
-supplier2 = Supplier(manufacturer2, product3)
+supplier2 = Supplier(manufacturer1, product3)
 supplier_repository.save(supplier2)
 
-supplier3 = Supplier(manufacturer1, product2)
+supplier3 = Supplier(manufacturer1, product4)
 supplier_repository.save(supplier3)
+
+supplier4 = Supplier(manufacturer2, product5)
+supplier_repository.save(supplier4)
+
+supplier5 = Supplier(manufacturer3, product1)
+supplier_repository.save(supplier5)
 
 #loc = supplier_repository.location(supplier3)
 
