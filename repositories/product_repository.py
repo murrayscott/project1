@@ -15,7 +15,7 @@ def select_all():
     sql = "SELECT * FROM products"
     results = run_sql(sql)
     for row in results:
-        product = Product(row['name'], row['description'], row['part_number'],row['category'],row['stock_qty'],row['reorder_level'],row['unit_multiple'],row['cost'], row['selling_price'], row['deleted'])
+        product = Product(row['name'], row['description'], row['part_number'],row['category'],row['stock_qty'],row['reorder_level'],row['unit_multiple'],row['cost'], row['selling_price'], row['deleted'], row['id'])
         products.append(product)
     return products
 
