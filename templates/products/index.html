@@ -42,6 +42,16 @@
     <td>{{ product.cost }}</td>
     <td>|</td>
     <td>{{ product.selling_price }}</td>
+    <td>
+
+      <div class="buttons">
+
+        <form class="delete-form" action="/products/{{product.id}}/delete" method="POST">
+          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+        </form>
+      </div>
+
+    </td>
   </tr>
   {% endfor %}
 </table>

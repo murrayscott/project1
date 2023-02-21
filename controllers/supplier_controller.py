@@ -36,4 +36,4 @@ def create_task():
 @suppliers_blueprint.route("/supplier/<id>/delete", methods=['POST'])
 def delete_task(id):
     supplier_repository.delete(id)
-    return redirect('/visits')
+    return redirect('/suppliers')

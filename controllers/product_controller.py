@@ -15,3 +15,10 @@ def show(id):
     product = product_repository.select(id)
     manufacturers = product_repository.manufacturers(product)
     return render_template("products/show.html", product = product , manufacturers = manufacturers)
+
+# DELETE
+# DELETE '/products/<id>'
+@products_blueprint.route("/products/<id>/delete", methods=['POST'])
+def delete_task(id):
+    product_repository.delete(id)
+    return redirect('/products')
