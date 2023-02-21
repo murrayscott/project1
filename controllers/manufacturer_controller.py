@@ -7,5 +7,11 @@ manufacturers_blueprint = Blueprint("manufactureres", __name__)
 
 @manufacturers_blueprint.route("/manufacturers")
 def manufacturers():
-    manufacturers = manufacturer_repository.select_all() # NEW
+    manufacturers = manufacturer_repository.select_all()
     return render_template("manufacturers/index.html", manufacturers = manufacturers)
+
+@manufacturers_blueprint.route("/manufacturers/<id>")
+def show(id):
+    manufacturer = manufacturer_repository.select(id)
+    product = manufacturer_repository.products(manufacturer)
+    return render_template("manufacturers/show.html", manufacturer = manufacturer, product = product)

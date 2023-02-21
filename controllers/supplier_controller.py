@@ -12,7 +12,6 @@ def suppliers():
     suppliers = supplier_repository.select_all() # NEW
     return render_template("suppliers/index.html", suppliers = suppliers)
 
-# NEW
 # GET '/suppliers/new'
 @suppliers_blueprint.route("/suppliers/new", methods=['GET'])
 def new_task():
@@ -31,7 +30,6 @@ def create_task():
     supplier = Supplier(product, manufacturer)
     supplier_repository.save(supplier)
     return redirect('/suppliers')
-
 
 # DELETE
 # DELETE '/suppliers/<id>'
