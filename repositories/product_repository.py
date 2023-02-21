@@ -30,6 +30,17 @@ def select(id):
         product = Product(result['name'], result['description'], result['part_number'], result['category'], result['stock_qty'], result['reorder_level'], result['unit_multiple'], result['cost'], result['selling_price'], result['deleted'], result['id'] )
     return product
 
+def manufacturers(product):
+    manufacturers = []
+
+    sql = "SELECT manufacturers.* FROM manufacturers INNER JOIN suppliers ON suppliers.manufacturer_id = manufacturer.id WHERE product_id = %s"
+    values = [product.id]
+    results = run_sql( sql, values )
+    for row in results:
+        manufacturer = Manufacturer(row['name'], row['address'], row['contact'],row['telephone'],row['email'],row['website'],row['deleted'], row['id'])
+        manufacturers.append(manufacturer)
+    return manufacturers
+
 def delete_all():
     sql = "DELETE FROM products"
     run_sql(sql)
