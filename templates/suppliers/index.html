@@ -18,7 +18,8 @@
   </tr>
   {% for supplier in suppliers %}
   <tr>
-    <td><a href="/products/{{ supplier.product.id }}=">{{ supplier.product.name }} </a></td>
+    <td>{{ supplier.id}}</td>
+    <td><a href="/products/{{ supplier.product.id }}">{{ supplier.product.name }} </a></td>
     <td>{{ supplier.product.description}} </td>
     <td><a href="/manufacturers/{{ supplier.manufacturer.id }}"> {{supplier.manufacturer.name}} </a></td>
     <td>{{ supplier.product.stock_qty }} </td>
@@ -33,7 +34,7 @@
     </td>
     <td>
       <form action="/suppliers/{{ supplier.id }}/delete" method="POST">
-        <input type="submit" value="delete" />
+        <input type="submit" value="Delete" />
       </form>
     </td>
   </tr>

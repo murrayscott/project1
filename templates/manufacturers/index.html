@@ -6,45 +6,64 @@
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
     <th>Address</th>
-    <th></th>
     <th>Contact</th>
-    <th></th>
     <th>Telephone</th>
-    <th></th>
     <th>Email
-    <th></th>
     <th>Website</th>
-    </th>
   </tr>
   {% for manufacturer in manufacturers %}
   <tr>
     <td><a href="/manufacturers/{{ manufacturer.id }}"> {{manufacturer.name}} </a></td>
-    <td>|</td>
     <td>{{ manufacturer.address }}</td>
-        <td>|</td>
     <td>{{ manufacturer.contact }}</td>
-        <td>|</td>
     <td>{{ manufacturer.telephone }}</td>
-        <td>|</td>
     <td>{{ manufacturer.email }}</td>
-        <td>|</td>
-    <td>{{ manufacturer.website }}</td>
+    <td><a href="{{ manufacturer.website }}">{{ manufacturer.website }}</a></td>
+    <td><a href="/manufacturers/{{manufacturer.id}}/edit">Edit</a></td>
     <td>
       <form action="/manufacturers/{{manufacturer.id}}/delete" method="POST">
-        <button><i>Delete</i></button>
+        <button><b>Delete</b></button>
       </form>
     </td>
   </tr>
   {% endfor %}
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+      <form>
+        <input type="text" id = "name" name="name">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "address" size="50" name="address">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "contact" name="contact">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "telephone" size="15" name="telephone">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="email" id = "email" size="25" name="email">
+      </form>
+    </td>
+    <td>
+      <form>
+        <input type="text" id = "website" size="25" name="website">
+      </form>
+    </td>
+    <td>
+      <form action="/manufacturers/add" method="POST">
+        <button><b>Add</b></button>
+      </form>
+    </td>
   </tr>
 </table>
 {% endblock %}

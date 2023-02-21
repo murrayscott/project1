@@ -15,20 +15,23 @@ def save(supplier):
 
 def select_all():
     suppliers = []
-    sql = "SELECT * FROM suppliers"
+    sql = "SELECT * FROM suppliers WHERE deleted = FALSE"
     results = run_sql( sql )
     for row in results:
         product = product_repository.select(row['product_id'])
         manufacturer = manufacturer_repository.select(row['manufacturer_id'])
         supplier = Supplier(product, manufacturer, row['id'])
+        print(supplier)
         suppliers.append(supplier)
     return suppliers
 
 def delete_all():
+    # ACTUALLY DELETES ALL THE RECORDS - DOES NOT UPDATE THE DELETED FLAG TO TRUE
     sql = "DELETE FROM suppliers"
     run_sql( sql )
 
 def delete(id):
-    sql = "DELETE FROM suppliers WHERE id = %s"
+    # DOES NOT DELETE THE RECORDS - ONLY SETS THE DELETED FLAG TO TRUE AND LEAVES THE RECORD
+    sql = "UPDATE suppliers SET deleted = TRUE WHERE id = %s"
     values = [id]
     run_sql( sql, values )

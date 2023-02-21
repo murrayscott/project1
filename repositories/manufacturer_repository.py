@@ -12,7 +12,7 @@ def save(manufacturer):
 
 def select_all():
     manufacturers = []
-    sql = "SELECT * FROM manufacturers"
+    sql = "SELECT * FROM manufacturers WHERE deleted = FALSE"
     results = run_sql(sql)
     for row in results:
         manufacturer = Manufacturer(row['name'], row['address'], row['contact'],row['telephone'],row['email'],row['website'],row['deleted'], row['id'])
