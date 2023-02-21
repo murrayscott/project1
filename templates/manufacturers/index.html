@@ -31,6 +31,11 @@
     <td>{{ manufacturer.email }}</td>
         <td>|</td>
     <td>{{ manufacturer.website }}</td>
+    <td>
+      <form action="/manufacturers/{{manufacturer.id}}/delete" method="POST">
+        <button><i>Delete</i></button>
+      </form>
+    </td>
   </tr>
   {% endfor %}
 </table>
