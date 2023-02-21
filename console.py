@@ -50,6 +50,4 @@ supplier_repository.save(supplier4)
 supplier5 = Supplier( product1, manufacturer3, False)
 supplier_repository.save(supplier5)
 
-#loc = supplier_repository.location(supplier3)
-
 pdb.set_trace()
