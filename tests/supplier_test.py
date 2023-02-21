@@ -20,6 +20,6 @@ class TestSupplier(unittest.TestCase):
         returned=self.supplier.manufacturer
         self.assertEqual(2,returned)
 
-    def test_manufacturer_id(self):
+    def test_deleted(self):
         returned=self.supplier.deleted
         self.assertEqual(False,returned)
