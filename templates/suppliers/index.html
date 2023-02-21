@@ -23,7 +23,14 @@
     <td><a href="/manufacturers/{{ supplier.manufacturer.id }}"> {{supplier.manufacturer.name}} </a></td>
     <td>{{ supplier.product.stock_qty }} </td>
     <td>{{ supplier.product.reorder_level }} </td>
-    <td>{{ supplier.product.stock_qty - supplier.product.reorder_level }} </td>
+    <td>{% if supplier.product.stock_qty >= supplier.product.reorder_level %} 
+            <a class = "green">OK</a>
+        {% elif supplier.product.stock_qty >= (supplier.product.reorder_level / 2) %}
+            <a class = "amber">REORDER</a>            
+        {% else%}
+            <a class = "red">REORDER</a>
+        {% endif %}
+    </td>
     <td>
       <form action="/suppliers/{{ supplier.id }}/delete" method="POST">
         <input type="submit" value="delete" />
