@@ -32,7 +32,6 @@ def select(id):
 
 def manufacturers(product):
     manufacturers = []
-
     sql = "SELECT manufacturers.* FROM manufacturers INNER JOIN suppliers ON suppliers.manufacturer_id = manufacturer.id WHERE product_id = %s"
     values = [product.id]
     results = run_sql( sql, values )
