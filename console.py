@@ -18,13 +18,13 @@ product2 = Product('6P Milk','Semi Skimmed Milk','4088600538044','Dairy', 62, 50
 product_repository.save(product2)
 
 product3 = Product('4P Milk','Semi Skimmed Milk','4088600538032','Dairy', 62, 50, 48, 2.03, 2.40, False )
-product_repository.save(product2)
+product_repository.save(product3)
 
 product4 = Product('2P Milk','Semi Skimmed Milk','4088600538872','Dairy', 62, 50, 48, 1.10, 1.40, False )
-product_repository.save(product2)
+product_repository.save(product4)
 
 product5 = Product('Mothers Pride Superseeded Sliced', 'Mixed Grain Sliced Loaf','5054781498063', 'Grain', 45, 40, 12, 1.45, 1.89, False)
-product_repository.save(product3)
+product_repository.save(product5)
 
 manufacturer1 = Manufacturer('Robert Wiseman', 'Moorfield Industrial Estate, Kilmarnock. KA2 0BA', 'Richard Fields', '01563 521376', 'orders@muller.co.uk','https://www.muller.co.uk', False)
 manufacturer_repository.save(manufacturer1)

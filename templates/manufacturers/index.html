@@ -7,13 +7,30 @@
   <tr>
     <th>Name</th>
     <th></th>
-    <th>Category</th>
+    <th>Address</th>
+    <th></th>
+    <th>Contact</th>
+    <th></th>
+    <th>Telephone</th>
+    <th></th>
+    <th>Email
+    <th></th>
+    <th>Website</th>
+    </th>
   </tr>
   {% for manufacturer in manufacturers %}
   <tr>
     <td><a href="/manufacturers/{{ manufacturer.id }}"> {{manufacturer.name}} </a></td>
     <td>|</td>
-    <td>{{ manufacturer.category }}</td>
+    <td>{{ manufacturer.address }}</td>
+        <td>|</td>
+    <td>{{ manufacturer.contact }}</td>
+        <td>|</td>
+    <td>{{ manufacturer.telephone }}</td>
+        <td>|</td>
+    <td>{{ manufacturer.email }}</td>
+        <td>|</td>
+    <td>{{ manufacturer.website }}</td>
   </tr>
   {% endfor %}
 </table>
