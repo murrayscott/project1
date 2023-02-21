@@ -29,10 +29,10 @@ product_repository.save(product5)
 manufacturer1 = Manufacturer('Robert Wiseman', 'Moorfield Industrial Estate, Kilmarnock. KA2 0BA', 'Richard Fields', '01563 521376', 'orders@muller.co.uk','https://www.muller.co.uk', False)
 manufacturer_repository.save(manufacturer1)
 
-manufacturer2 = Manufacturer('Allied Bakeries','180 Glentanar Rd, Glasgow. G22 7XS', 'Barry Brownbread', '0141 347 4222', 'sales@alliedbakeries.co.uk', 'www.alliedbakeries.co.uk', False)
+manufacturer2 = Manufacturer('Allied Bakeries','180 Glentanar Rd, Glasgow. G22 7XS', 'Barry Brownbread', '0141 347 4222', 'sales@alliedbakeries.co.uk', 'https://www.alliedbakeries.co.uk', False)
 manufacturer_repository.save(manufacturer2)
 
-manufacturer3 = Manufacturer('Ferrero', '889 Greenford Rd, Greenford. UB6 0HE','Tracy Nutford', '020 8868 4000','orders@ferrero.co.uk', 'www.fererro.co.uk', False )
+manufacturer3 = Manufacturer('Ferrero', '889 Greenford Rd, Greenford. UB6 0HE','Tracy Nutford', '020 8868 4000','orders@ferrero.co.uk', 'https://www.fererro.co.uk', False )
 manufacturer_repository.save(manufacturer3)
 
 supplier1 = Supplier( product2, manufacturer1, False)
