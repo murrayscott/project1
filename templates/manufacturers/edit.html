@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Manufacturers - Edit</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Contact</th>
+    <th>Telephone</th>
+    <th>Email
+    <th>Website</th>
+  </tr>
+  <tr>
+    <td>
+      <form action="/manufacturers/{{manufacturer.id}/update" method="POST">
+        <input type="text" id = "name" size="25" name="name" value="{{ manufacturer.name }}">
+    </td>
+    <td>
+        <input type="text" id = "address" size="55" name="address" value="{{ manufacturer.address }}">
+    </td>
+    <td>
+        <input type="text" id = "contact" name="contact" value="{{ manufacturer.contact }}">
+    </td>
+    <td>
+        <input type="text" id = "telephone" size="15" name="telephone" value="{{ manufacturer.telephone }}">
+    </td>
+    <td>
+        <input type="email" id = "email" size="25" name="email" value="{{ manufacturer.email }}">
+    </td>
+    <td>
+        <input type="text" id = "website" size="25" name="website" value="{{ manufacturer.website }}">
+    </td>
+    <td>
+        <button type="submit"><b>Update</b></button>
+      </form>
+    </td>
+  </tr>
+</table>
+{% endblock %}
