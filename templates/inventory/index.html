@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Suppliers</h1>
-
-<p>
-  <a href="/suppliers/new">New Supplier</a>
-</p>
+<h1>Inventory Summary</h1>
 
 <table>
   <tr>
@@ -18,7 +14,6 @@
   </tr>
   {% for supplier in suppliers %}
   <tr>
-    <tD>{{ supplier.id }}</tD>
     <td><a href="/products/{{ supplier.product.id }}">{{ supplier.product.name }} </a></td>
     <td>{{ supplier.product.description}} </td>
     <td><a href="/manufacturers/{{ supplier.manufacturer.id }}"> {{supplier.manufacturer.name}} </a></td>

@@ -12,6 +12,11 @@ def suppliers():
     suppliers = supplier_repository.select_all()
     return render_template("suppliers/index.html", suppliers = suppliers)
 
+@suppliers_blueprint.route("/inventory")
+def inventory():
+    suppliers = supplier_repository.select_all()
+    return render_template("inventory/index.html", suppliers = suppliers)
+
 # GET '/suppliers/new'
 @suppliers_blueprint.route("/suppliers/new", methods=['GET'])
 def new_task():
