@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Products - Edit</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Part Number</th>
+    <th>Category</th>
+    <th>Stock Quantity</th>
+    <th>Reorder Level</th>
+    <th>Unit Multiple</th>
+    <th>Cost</th>
+    <th>Selling Price</th>
+  </tr>
+  <tr>
+    <td>
+      <form action="/products/{{ product.id }}/update" method="POST">
+        <input type="text" id = "name" size="30" name="name" value = "{{ product.name }}">
+    </td>
+    <td>
+        <input type="text" id = "description" size="50" name="description" value = "{{ product.description }}">
+    </td>
+    <td>
+        <input type="text" id = "part_number" name="part_number" value = "{{ product.part_number }}">
+     </td>
+    <td>
+        <input type="text" id = "category" size="15" name="category" value = "{{ product.category }}">
+     </td>
+    <td>
+        <input type="text" id = "stock_qty" size="8" name="stock_qty" value = "{{ product.stock_qty }}">
+    </td>
+    <td>
+        <input type="text" id = "reorder_level" size="8" name="reorder_level" value = "{{ product.reorder_level }}">
+    </td>
+    <td>
+        <input type="text" id = "unit_multiple" size="8" name="unit_multiple" value = "{{ product.unit_multiple }}">
+    </td>
+    <td>
+        <input type="text" id = "cost" size="10" name="cost" value = "{{ '%0.2f' |format(product.cost|float) }}">
+    </td>
+    <td>
+        <input type="text" id = "selling_price" size="10" name="selling_price" value = "{{ '%0.2f' |format(product.selling_price|float) }}">
+    </td>
+    <td>
+        <button type="submit"><b>Update</b></button>
+      </form>
+    </td>
+  </tr>
+</table>
+{% endblock %}
