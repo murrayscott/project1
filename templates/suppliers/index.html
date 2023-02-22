@@ -15,7 +15,6 @@
   </tr>
   {% for supplier in suppliers %}
   <tr>
-    <tD>{{ supplier.id }}</tD>
     <td><a href="/products/{{ supplier.product.id }}">{{ supplier.product.name }} </a></td>
     <td>{{ supplier.product.description}} </td>
     <td><a href="/manufacturers/{{ supplier.manufacturer.id }}"> {{supplier.manufacturer.name}} </a></td>

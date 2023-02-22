@@ -24,8 +24,8 @@
     <td>{{ product.stock_qty }}</td>
     <td>{{ product.reorder_level }}</td>
     <td>{{ product.unit_multiple }}</td>
-    <td>{{ product.cost }}</td>
-    <td>{{ product.selling_price }}</td>
+    <td>{{ '%0.2f' |format(product.cost|float) }}</td>
+    <td>{{ '%0.2f' |format(product.selling_price|float) }}</td>
     <td><a href="/products/{{product.id}}/edit">Edit</a></td>
     <td>
       <form action="/products/{{ product.id }}/delete" method="POST">

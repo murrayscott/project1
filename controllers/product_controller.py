@@ -10,14 +10,30 @@ def products():
     products = product_repository.select_all()
     return render_template("products/index.html", products = products)
 
+# POSSIBLY DELETE THIS AND SHOW HTML NOT MVP
 @products_blueprint.route("/products/<id>")
 def show(id):
     product = product_repository.select(id)
     manufacturers = product_repository.manufacturers(product)
     return render_template("products/show.html", product = product , manufacturers = manufacturers)
 
-# DELETE
-# DELETE '/products/<id>'
+# CREATE NEW PRODUCT - POST '/products'
+@products_blueprint.route("/products/add", methods=['POST'])
+def create_product():
+    name = request.form['name']
+    description = request.form['description']
+    part_number = request.form['part_number']
+    category =  request.form['category']
+    stock_qty = int(request.form['stock_qty'])
+    reorder_level = int(request.form['reorder_level'])
+    unit_multiple = int(request.form['unit_multiple'])
+    cost = float(request.form['cost'])
+    selling_price = float(request.form['selling_price'])
+    product = Product(name,description,part_number,category,stock_qty,reorder_level,unit_multiple,cost,selling_price,False)
+    product_repository.save(product)
+    return redirect("/products")
+
+# DELETE SINGLE PRODUCT BY ID - DELETE '/products/<id>'
 @products_blueprint.route("/products/<id>/delete", methods=['POST'])
 def delete_task(id):
     product_repository.delete(id)

@@ -14,6 +14,7 @@
     <th>Cost</th>
     <th>Sale Price</th>
     <th>Margin</th>
+    <th>Total Value</th>
   </tr>
   {% for supplier in suppliers %}
   <tr>
@@ -35,6 +36,8 @@
     <td>{{ '%0.2f' |format(supplier.product.cost|float) }}</td>
     <td>{{ '%0.2f' |format(supplier.product.selling_price|float) }}</td>
     <td>{{ (((supplier.product.selling_price - supplier.product.cost)/ supplier.product.selling_price)*100)|round(1,'common') }}%</td>
+    <td>{{ '%0.2f' |format(supplier.product.cost * supplier.product.stock_qty|float) }}</td>
+
   </tr>
   {% endfor %}
 </table>
