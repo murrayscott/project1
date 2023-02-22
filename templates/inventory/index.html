@@ -11,6 +11,9 @@
     <th>Stock Quantity</th>
     <th>Reorder Level</th>
     <th>Stock Status</th>
+    <th>Cost</th>
+    <th>Sale Price</th>
+    <th>Margin</th>
   </tr>
   {% for supplier in suppliers %}
   <tr>
@@ -29,11 +32,9 @@
             <a class = "orange">VERY LOW STOCK</a>
         {% endif %}
     </td>
-    <td>
-      <form action="/suppliers/{{ supplier.id }}/delete" method="POST">
-        <input type="submit" value="Delete" />
-      </form>
-    </td>
+    <td>{{ '%0.2f' |format(supplier.product.cost|float) }}</td>
+    <td>{{ '%0.2f' |format(supplier.product.selling_price|float) }}</td>
+    <td>{{ (((supplier.product.selling_price - supplier.product.cost)/ supplier.product.selling_price)*100)|round(1,'common') }}%</td>
   </tr>
   {% endfor %}
 </table>
