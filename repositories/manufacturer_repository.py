@@ -39,6 +39,11 @@ def products(manufacturer):
         products.append(product)
     return products
 
+def update(manufacturer):
+    sql = "UPDATE manufacturers SET (name, address, contact, telephone, email, website) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [manufacturer.name, manufacturer.address, manufacturer.contact, manufacturer.telephone, manufacturer.email, manufacturer.website, manufacturer.id]
+    run_sql(sql, values)
+
 def delete_all():
     sql = "DELETE FROM manufacturers"
     run_sql(sql)

@@ -29,7 +29,26 @@ def create_manufacturer():
     manufacturer_repository.save(manufacturer)
     return redirect("/manufacturers")
 
-# DELETE EXISTING MANUFACTURER - DELETE '/suppliers/<id>'
+# EDIT MANUFACTURER - GET '/manufacturers/<id>/edit'
+@manufacturers_blueprint.route("/manufacturers/<id>/edit", methods=['GET'])
+def edit_manufacturer(id):
+    manufacturer = manufacturer_repository.select(id)
+    return render_template('manufacturers/edit.html', manufacturer = manufacturer)
+
+# UPDATE MANUFACTURER - PUT '/manufacturers/<id>/update'
+@manufacturers_blueprint.route("/manufacturers/<id>/update", methods=['POST'])
+def update_manufacturer(id):
+    name = request.form['name']
+    address = request.form['address']
+    contact = request.form['contact']
+    telephone = request.form['telephone']
+    email = request.form['email']
+    website = request.form['website']
+    manufacturer = Manufacturer(name,address,contact,telephone,email,website,False,id)
+    manufacturer_repository.update(manufacturer)
+    return redirect('/manufacturers')
+
+# DELETE EXISTING MANUFACTURER - DELETE '/suppliers/<id>/delete'
 @manufacturers_blueprint.route("/manufacturers/<id>/delete", methods=['POST'])
 def delete_manufacturer(id):
     manufacturer_repository.delete(id)
