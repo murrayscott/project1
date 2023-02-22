@@ -12,7 +12,7 @@ def save(product):
 
 def select_all():
     products = []
-    sql = "SELECT * FROM products"
+    sql = "SELECT * FROM products WHERE deleted = FALSE"
     results = run_sql(sql)
     for row in results:
         product = Product(row['name'], row['description'], row['part_number'],row['category'],row['stock_qty'],row['reorder_level'],row['unit_multiple'],row['cost'], row['selling_price'], row['deleted'], row['id'])

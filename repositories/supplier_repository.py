@@ -15,13 +15,13 @@ def save(supplier):
 
 def select_all():
     suppliers = []
-    sql = "SELECT * FROM suppliers WHERE deleted = FALSE"
-    results = run_sql( sql )
+    sql = "SELECT * FROM suppliers WHERE deleted = %s"
+    values = [False]
+    results = run_sql( sql,values )
     for row in results:
         product = product_repository.select(row['product_id'])
         manufacturer = manufacturer_repository.select(row['manufacturer_id'])
-        supplier = Supplier(product, manufacturer, row['id'])
-        print(supplier)
+        supplier = Supplier(product, manufacturer, row['deleted'], row['id'])
         suppliers.append(supplier)
     return suppliers
 
