@@ -2,30 +2,25 @@
 <html>
 <head>
   <title>Inventory Controller</title>
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   
 </head>
 <body>
+
   <header>
     <h1> Pick a Corner Grocery </h1>
+    <hr>
   </header>
-<main>
+  <main>
   <nav>
-    <ul>
-      <li>
-        <a href="/manufacturers">Manufacturers</a>
-      </li>
-      <li>
-        <a href="/products">Products</a>
-      </li>
-      <li>
-        <a href="/suppliers">Suppliers</a>
-      </li>
-      <li>
-        <a href="/inventory">Inventory</a>
-      </li>
-    </ul>
+      <h3>
+      <a href="/manufacturers">Manufacturers</a>
+      <a href="/products">Products</a>
+      <a href="/suppliers">   Suppliers</a>
+      <a href="/inventory">Inventory</a>
+    </h3>
+
   </nav>
   <section id="content">
       {% block content %}
@@ -33,5 +28,10 @@
       {% endblock%}
   </section>
   </main>
+  <footer>
+
+  </footer>
+
+
 </body>
 </html>

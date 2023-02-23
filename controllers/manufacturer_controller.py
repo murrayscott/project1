@@ -10,13 +10,6 @@ def manufacturers():
     manufacturers = manufacturer_repository.select_all()
     return render_template("manufacturers/index.html", manufacturers = manufacturers)
 
-# POSSIBLY DELETE THIS AND SHOW HTML NOT MVP 
-@manufacturers_blueprint.route("/manufacturers/<id>")
-def show(id):
-    manufacturer = manufacturer_repository.select(id)
-    product = manufacturer_repository.products(manufacturer)
-    return render_template("manufacturers/show.html", manufacturer = manufacturer, product = product)
-
 # CREATE NEW MANUFACTURER - POST '/manufacturers'
 @manufacturers_blueprint.route("/manufacturers/add", methods=['POST'])
 def create_manufacturer():

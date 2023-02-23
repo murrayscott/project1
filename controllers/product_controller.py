@@ -10,13 +10,6 @@ def products():
     products = product_repository.select_all()
     return render_template("products/index.html", products = products)
 
-# POSSIBLY DELETE THIS AND SHOW HTML NOT MVP
-@products_blueprint.route("/products/<id>")
-def show(id):
-    product = product_repository.select(id)
-    manufacturers = product_repository.manufacturers(product)
-    return render_template("products/show.html", product = product , manufacturers = manufacturers)
-
 # CREATE NEW PRODUCT - POST '/products'
 @products_blueprint.route("/products/add", methods=['POST'])
 def create_product():
