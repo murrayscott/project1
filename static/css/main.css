@@ -1,15 +1,19 @@
 .red {
-    color: red;
+    background-color: red;
+    color: white;
 }
 
 .orange {
-    color: orange;
+    background-color: orange;
+    color: white;   
 }
 
 .yellow{
-    color: yellow;
+    background-color: yellow;
+    color: black;
 }
 
 .green {
-    color: green;
+    background-color: green;
+    color: white;
 }

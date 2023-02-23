@@ -18,9 +18,9 @@
   </tr>
   {% for supplier in suppliers %}
   <tr>
-    <td><a href="/products/{{ supplier.product.id }}">{{ supplier.product.name }} </a></td>
-    <td>{{ supplier.product.description}} </td>
-    <td><a href="/manufacturers/{{ supplier.manufacturer.id }}"> {{supplier.manufacturer.name}} </a></td>
+    <td>{{ supplier.product.name }}</td>
+    <td>{{ supplier.product.description }} </td>
+    <td>{{ supplier.manufacturer.name }}</td>
     <td>{{ supplier.product.stock_qty }} </td>
     <td>{{ supplier.product.reorder_level }} </td>
     <td>{% if supplier.product.stock_qty >= supplier.product.reorder_level %} 
