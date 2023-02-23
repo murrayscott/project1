@@ -40,6 +40,7 @@ body>header {
 body {
     color: #000000;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: small;
     background: url('/static/images/FWL_Sept_BlogImages_1_Warehouse.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
