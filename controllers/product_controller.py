@@ -33,6 +33,28 @@ def create_product():
     product_repository.save(product)
     return redirect("/products")
 
+# EDIT PRODUCT - GET '/products/<id>/edit'
+@products_blueprint.route("/products/<id>/edit", methods=['GET'])
+def edit_products(id):
+    product = product_repository.select(id)
+    return render_template('products/edit.html', product = product)
+
+# UPDATE PRODUCT - PUT '/products/<id>/update'
+@products_blueprint.route("/products/<id>/update", methods=['POST'])
+def update_products(id):
+    name = request.form['name']
+    description = request.form['description']
+    part_number = request.form['part_number']
+    category = request.form['category']
+    stock_qty = request.form['stock_qty']
+    reorder_level = request.form['reorder_level']
+    unit_multiple = request.form['unit_multiple']
+    cost = request.form['cost']
+    selling_price = request.form['selling_price']
+    product = Product(name,part_number,description,category,stock_qty,reorder_level,unit_multiple,cost,selling_price,False,id)
+    product_repository.update(product)
+    return redirect('/products')
+
 # DELETE SINGLE PRODUCT BY ID - DELETE '/products/<id>'
 @products_blueprint.route("/products/<id>/delete", methods=['POST'])
 def delete_task(id):
