@@ -21,11 +21,11 @@
     <td>{{ product.description }}</td>
     <td>{{ product.part_number }}</td>
     <td>{{ product.category }}</td>
-    <td>{{ product.stock_qty }}</td>
-    <td>{{ product.reorder_level }}</td>
-    <td>{{ product.unit_multiple }}</td>
-    <td>{{ '%0.2f' |format(product.cost|float) }}</td>
-    <td>{{ '%0.2f' |format(product.selling_price|float) }}</td>
+    <td class="centre">{{ product.stock_qty }}</td>
+    <td class="centre">{{ product.reorder_level }}</td>
+    <td class="centre">{{ product.unit_multiple }}</td>
+    <td class="right">{{ '%0.2f' |format(product.cost|float) }}</td>
+    <td class="right">{{ '%0.2f' |format(product.selling_price|float) }}</td>
     <td><a href="/products/{{product.id}}/edit">Edit</a></td>
     <td>
       <form action="/products/{{ product.id }}/delete" method="POST">

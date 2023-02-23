@@ -48,3 +48,15 @@ body {
     height: 100vh;
     width: 100%;
 }  
+
+.centre {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+th, td {
+    padding: 5px;
+  }

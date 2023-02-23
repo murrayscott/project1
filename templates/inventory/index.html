@@ -21,8 +21,8 @@
     <td>{{ supplier.product.name }}</td>
     <td>{{ supplier.product.description }} </td>
     <td>{{ supplier.manufacturer.name }}</td>
-    <td>{{ supplier.product.stock_qty }} </td>
-    <td>{{ supplier.product.reorder_level }} </td>
+    <td class="centre">{{ supplier.product.stock_qty }} </td>
+    <td class="centre">{{ supplier.product.reorder_level }} </td>
     <td>{% if supplier.product.stock_qty >= supplier.product.reorder_level %} 
             <a class = "green">OK</a>
         {% elif supplier.product.stock_qty >= (supplier.product.reorder_level / 2) %}
@@ -33,10 +33,10 @@
             <a class = "orange">VERY LOW STOCK</a>
         {% endif %}
     </td>
-    <td>{{ '%0.2f' |format(supplier.product.cost|float) }}</td>
-    <td>{{ '%0.2f' |format(supplier.product.selling_price|float) }}</td>
-    <td>{{ (((supplier.product.selling_price - supplier.product.cost)/ supplier.product.selling_price)*100)|round(1,'common') }}%</td>
-    <td>{{ '%0.2f' |format(supplier.product.cost * supplier.product.stock_qty|float) }}</td>
+    <td class="right">{{ '%0.2f' |format(supplier.product.cost|float) }}</td>
+    <td class="right">{{ '%0.2f' |format(supplier.product.selling_price|float) }}</td>
+    <td class="right">{{ (((supplier.product.selling_price - supplier.product.cost)/ supplier.product.selling_price)*100)|round(1,'common') }}%</td>
+    <td class="right">{{ '%0.2f' |format(supplier.product.cost * supplier.product.stock_qty|float) }}</td>
 
   </tr>
   {% endfor %}
