@@ -3,21 +3,18 @@
 {% block content %}
 <h1>Suppliers</h1>
 
-<p>
-  <a href="/suppliers/new">New Supplier</a>
-</p>
-
 <table>
   <tr>
     <th>Product</th>
     <th>Description</th>
     <th>Maufacturer</th>
+    <th></th>
   </tr>
   {% for supplier in suppliers %}
   <tr>
     <td>{{ supplier.product.name }}</td>
-    <td>{{ supplier.product.description}}</td>
-    <td>{{supplier.manufacturer.name}}</td>
+    <td>{{ supplier.product.description }}</td>
+    <td>{{ supplier.manufacturer.name }}</td>
     <td>
       <form action="/suppliers/{{ supplier.id }}/delete" method="POST">
         <input type="submit" value="Delete" />
@@ -25,5 +22,29 @@
     </td>
   </tr>
   {% endfor %}
+  <tr>
+    <td>
+      <form action="/suppliers" method="post">
+
+          <select name="product_id" id="product">
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+          </select>
+    </td>
+    <td></td>
+    <td>
+ 
+      <select name="manufacturer_id" id="manufacturer">
+        {% for manufacturer in manufacturers %}
+        <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+        {% endfor %}
+      </select>
+    </td>
+    <td>
+        <input type='submit' value="Add">
+      </form>
+    </td>
+  </tr>
 </table>
 {% endblock %}
